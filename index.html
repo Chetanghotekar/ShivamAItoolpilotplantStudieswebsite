@@ -1,0 +1,103 @@
+<!-- index.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pilot Plant AI Assistant</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <header>
+        <h1>Pilot Plant AI Assistant</h1>
+        <p>Your colorful, easy-to-use tool for pharmaceutical pilot plant management. Powered by AI simulations with real cost models.</p>
+    </header>
+
+    <section id="batch-analysis">
+        <h2>Batch Error Detection and Cost Analysis</h2>
+        <p>Enter batch details to detect errors, get per unit cost, and future trends.</p>
+        <form id="batch-form">
+            <label for="batch-no">Batch Number:</label>
+            <input type="text" id="batch-no" placeholder="e.g., BATCH001" required>
+            
+            <label for="batch-size">Batch Size (units):</label>
+            <input type="number" id="batch-size" placeholder="e.g., 1000" required min="1">
+            
+            <label for="excipient-qty">Excipient Quantity (kg):</label>
+            <input type="number" id="excipient-qty" placeholder="e.g., 50" required min="0">
+            
+            <button type="button" onclick="analyzeBatch()">Analyze</button>
+        </form>
+        <div id="output"></div>
+    </section>
+
+    <section id="side-effects-section">
+        <h2>Side Effects and Minimization</h2>
+        <p>Common side effects caused by excipients and how to minimize them.</p>
+        <div id="side-effects">
+            <ul>
+                <li><strong>Sesame Oil (in injections):</strong> Hypersensitivity reactions. Minimize by using alternative oils like soybean oil and testing for allergies.</li>
+                <li><strong>Lanolin (wool fat):</strong> Skin irritation. Minimize by substituting with synthetic alternatives or hypoallergenic options.</li>
+                <li><strong>Lactose:</strong> Intolerance causing digestive issues. Minimize by using lactose-free formulations or alternatives like mannitol.</li>
+                <li><strong>Sodium Starch Glycolate:</strong> Swelling and leakage. Minimize by controlling moisture and using in appropriate quantities.</li>
+                <li><strong>General Dyes and Sugars:</strong> Allergic reactions or intolerances. Minimize by selecting excipients based on patient profiles and regulatory guidelines.</li>
+            </ul>
+            <p>Source: Based on common pharmaceutical excipient data from reliable sources.</p>
+        </div>
+    </section>
+
+    <section id="formulation-calculator">
+        <h2>Formulation Calculator for Best Therapeutic Action</h2>
+        <p>Calculate optimal dosage for therapeutic action based on weight and desired concentration.</p>
+        <form id="calc-form">
+            <label for="patient-weight">Patient Weight (kg):</label>
+            <input type="number" id="patient-weight" placeholder="e.g., 70" required min="1">
+            
+            <label for="desired-dose">Desired Dose (mg/kg):</label>
+            <input type="number" id="desired-dose" placeholder="e.g., 5" required min="0">
+            
+            <label for="frequency">Frequency (times/day):</label>
+            <input type="number" id="frequency" placeholder="e.g., 3" required min="1">
+            
+            <button type="button" onclick="calculateDosage()">Calculate</button>
+        </form>
+        <div id="calc-output"></div>
+    </section>
+
+    <section id="graphs">
+        <h2>Visual Information: Costs and Trends</h2>
+        <p>Pie chart for cost breakdown and line graph for future trends.</p>
+        <canvas id="costPieChart" width="400" height="200"></canvas>
+        <canvas id="trendLineChart" width="400" height="200"></canvas>
+    </section>
+
+    <section id="sop-section">
+        <h2>Standard Operating Procedure (SOP) for Formulation</h2>
+        <p>Example SOP for pharmaceutical formulation in a pilot plant.</p>
+        <div>
+            <h3>SOP: Tablet Formulation Process</h3>
+            <ol>
+                <li><strong>Purpose:</strong> To outline the procedure for formulating tablets in the pilot plant.</li>
+                <li><strong>Scope:</strong> Applies to all tablet formulations.</li>
+                <li><strong>Responsibilities:</strong> Quality Assurance, Production Team.</li>
+                <li><strong>Procedure:</strong>
+                    <ul>
+                        <li>Weigh API and excipients accurately.</li>
+                        <li>Mix in blender for 10 minutes.</li>
+                        <li>Granulate with binder solution.</li>
+                        <li>Dry granules at 50°C.</li>
+                        <li>Compress into tablets using tablet press.</li>
+                        <li>Perform quality checks: weight, hardness, dissolution.</li>
+                    </ul>
+                </li>
+                <li><strong>References:</strong> USP <795> guidelines.</li>
+                <li><strong>Review:</strong> Annually or as needed.</li>
+            </ol>
+            <p>Source: Adapted from standard pharma SOP examples (e.g., Pharmaguideline, ASHP).</p>
+        </div>
+    </section>
+
+    <script src="script.js"></script>
+</body>
+</html>
